@@ -40,10 +40,6 @@ public class MathException extends RuntimeException {
 	 * 
 	 * @param type
 	 *            The exception type
-	 * @param clazz
-	 *            the class of the instance throwing the exception
-	 * @param method
-	 *            the method throwing the exception
 	 */
 	public MathException(ExceptionType type) {
 		this.type = type;
