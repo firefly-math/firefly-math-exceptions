@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
      <modelVersion>4.0.0</modelVersion>
-     <groupId>com.fireflysemantics.math.exceptions</groupId>
+     <groupId>com.fireflysemantics.math</groupId>
      <artifactId>firefly-math-exceptions</artifactId>
      <name>firefly-math-exceptions</name>
      <version>0.0.0</version>
@@ -11,10 +11,6 @@
      <properties>
           <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
           <maven.compiler.target>1.8</maven.compiler.target>
-          <math.pmd.version>3.5</math.pmd.version>
-          <math.findbugs.version>3.0.2</math.findbugs.version>
-          <math.checkstyle.version>2.17</math.checkstyle.version>
-          <math.javadoc.version>2.10.3</math.javadoc.version>
      </properties>
      <dependencies>
           <!-- Testing -->
@@ -42,99 +38,6 @@
                          <target>${maven.compiler.target}</target>
                     </configuration>
                </plugin>
-               <plugin>
-                    <artifactId>maven-pmd-plugin</artifactId>
-                    <version>${math.pmd.version}</version>
-                    <configuration>
-                         <targetJdk>${maven.compiler.target}</targetJdk>
-                         <skipEmptyReport>false</skipEmptyReport>
-                         <rulesets>
-                              <ruleset>${basedir}/pmd-ruleset.xml</ruleset>
-                         </rulesets>
-                    </configuration>
-               </plugin>
-               <!-- MathJax -->
-               <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${math.javadoc.version}</version>
-                    <configuration>
-                         <additionalparam>-header &apos;&lt;script
-                              type=&quot;text/javascript&quot;
-                              src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;&apos;</additionalparam>
-                    </configuration>
-               </plugin>
-          </plugins>
+             </plugins>
      </build>
-     <reporting>
-          <plugins>
-               <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>findbugs-maven-plugin</artifactId>
-                    <version>${math.findbugs.version}</version>
-                    <configuration>
-                         <threshold>Normal</threshold>
-                         <effort>Default</effort>
-                         <excludeFilterFile>${basedir}/findbugs-exclude-filter.xml</excludeFilterFile>
-                    </configuration>
-               </plugin>
-               <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>${math.checkstyle.version}</version>
-                    <configuration>
-                         <configLocation>${basedir}/checkstyle.xml</configLocation>
-                         <enableRulesSummary>false</enableRulesSummary>
-                         <includeResources>false</includeResources>
-                         <headerLocation>${basedir}/license-header.txt</headerLocation>
-                    </configuration>
-                    <reportSets>
-                         <reportSet>
-                              <reports>
-                                   <report>checkstyle</report>
-                              </reports>
-                         </reportSet>
-                    </reportSets>
-               </plugin>
-               <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>clirr-maven-plugin</artifactId>
-                    <version>${math.clirr.version}</version>
-                    <configuration>
-                         <minSeverity>${minSeverity}</minSeverity>
-                         <ignoredDifferencesFile>${basedir}/clirr-ignored.xml</ignoredDifferencesFile>
-                    </configuration>
-               </plugin>
-               <plugin>
-                    <artifactId>maven-pmd-plugin</artifactId>
-                    <version>${math.pmd.version}</version>
-                    <configuration>
-                         <targetJdk>${maven.compiler.target}</targetJdk>
-                         <skipEmptyReport>false</skipEmptyReport>
-                         <rulesets>
-                              <ruleset>${basedir}/pmd-ruleset.xml</ruleset>
-                         </rulesets>
-                    </configuration>
-                    <reportSets>
-                         <reportSet>
-                              <reports>
-                                   <report>pmd</report>
-                                   <report>cpd</report>
-                              </reports>
-                         </reportSet>
-                    </reportSets>
-               </plugin>
-               <!-- MathJax -->
-               <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${math.javadoc.version}</version>
-                    <configuration>
-                         <additionalparam>-header &apos;&lt;script
-                              type=&quot;text/javascript&quot;
-                              src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;&apos;</additionalparam>
-                    </configuration>
-               </plugin>
-          </plugins>
-     </reporting>
 </project>
