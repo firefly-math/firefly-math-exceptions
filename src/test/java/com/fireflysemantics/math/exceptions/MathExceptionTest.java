@@ -38,10 +38,8 @@ public class MathExceptionTest {
 	@Test
 	public void verifyContext() {
 		try {
-			MathException e = new MathException(ExceptionTypes.DIMENSION_MISMATCH_EXCEPTION);
-			e.getContext().put(ExceptionKeys.EXPECTED, 2);
-			e.getContext().put(ExceptionKeys.WAS, 3);
-			throw e;
+			throw new MathException(ExceptionTypes.DIMENSION_MISMATCH_EXCEPTION)
+					.put(ExceptionKeys.EXPECTED, 2).put(ExceptionKeys.WAS, 3);
 		} catch (MathException e) {
 			assertEquals(e.getContext().get(ExceptionKeys.EXPECTED), 2);
 			assertEquals(e.getContext().get(ExceptionKeys.WAS), 3);
@@ -51,10 +49,8 @@ public class MathExceptionTest {
 	@Test
 	public void verifyToString() {
 		try {
-			MathException e = new MathException(ExceptionTypes.DIMENSION_MISMATCH_EXCEPTION);
-			e.getContext().put(ExceptionKeys.EXPECTED, 2);
-			e.getContext().put(ExceptionKeys.WAS, 3);
-			throw e;
+			throw new MathException(ExceptionTypes.DIMENSION_MISMATCH_EXCEPTION)
+					.put(ExceptionKeys.EXPECTED, 2).put(ExceptionKeys.WAS, 3);
 		} catch (MathException e) {
 			assertTrue(e.toString().contains("2"));
 			assertTrue(e.toString().contains("3"));

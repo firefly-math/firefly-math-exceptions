@@ -21,12 +21,6 @@ import lombok.Getter;
 
 public class MathException extends RuntimeException {
 
-	/** Expected context string */
-	public static final String EXPECTED = "expected";
-
-	/** Was context string */
-	public static final String WAS = "was";
-
 	/** @return The exception type */
 	@Getter
 	private ExceptionType type = null;
@@ -44,6 +38,16 @@ public class MathException extends RuntimeException {
 	public MathException(ExceptionType type) {
 		this.type = type;
 		this.context = new LinkedHashMap<String, Object>();
+	}
+
+	/**
+	 * Fluid put for adding exception parameters to the context.
+	 * 
+	 * @return the context
+	 */
+	public MathException put(String key, Object value) {
+		this.context.put(key, value);
+		return this;
 	}
 
 	@Override
