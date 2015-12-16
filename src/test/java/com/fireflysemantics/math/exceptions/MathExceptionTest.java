@@ -39,12 +39,12 @@ public class MathExceptionTest {
 	public void verifyContext() {
 		try {
 			MathException e = new MathException(ExceptionTypes.DIMENSION_MISMATCH_EXCEPTION);
-			e.getContext().put(e.EXPECTED, 2);
-			e.getContext().put(e.WAS, 3);
+			e.getContext().put(ExceptionKeys.EXPECTED, 2);
+			e.getContext().put(ExceptionKeys.WAS, 3);
 			throw e;
 		} catch (MathException e) {
-			assertEquals(e.getContext().get(e.EXPECTED), 2);
-			assertEquals(e.getContext().get(e.WAS), 3);
+			assertEquals(e.getContext().get(ExceptionKeys.EXPECTED), 2);
+			assertEquals(e.getContext().get(ExceptionKeys.WAS), 3);
 		}
 	}
 
@@ -52,14 +52,14 @@ public class MathExceptionTest {
 	public void verifyToString() {
 		try {
 			MathException e = new MathException(ExceptionTypes.DIMENSION_MISMATCH_EXCEPTION);
-			e.getContext().put(e.EXPECTED, 2);
-			e.getContext().put(e.WAS, 3);
+			e.getContext().put(ExceptionKeys.EXPECTED, 2);
+			e.getContext().put(ExceptionKeys.WAS, 3);
 			throw e;
 		} catch (MathException e) {
 			assertTrue(e.toString().contains("2"));
 			assertTrue(e.toString().contains("3"));
-			assertTrue(e.toString().contains(e.EXPECTED));
-			assertTrue(e.toString().contains(e.WAS));
+			assertTrue(e.toString().contains(ExceptionKeys.EXPECTED));
+			assertTrue(e.toString().contains(ExceptionKeys.WAS));
 		}
 	}
 }
