@@ -15,8 +15,8 @@ package com.fireflysemantics.math.exceptions;
 
 public class ExceptionKeys {
 
-	public static final String EXPECTED = "expected";
-	public static final String WAS = "was";
+	public static final String CONSTRAINT = "constraint";
+	public static final String VALUE = "value";
 
 	/** Private constructor */
 	private ExceptionKeys() {

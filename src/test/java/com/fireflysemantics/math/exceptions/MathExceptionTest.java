@@ -23,26 +23,26 @@ public class MathExceptionTest {
 
 	@Test(expected = MathException.class)
 	public void verifyThrows() {
-		throw new MathException(ExceptionTypes.DIMENSION_MISMATCH_EXCEPTION);
+		throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION);
 	}
 
 	@Test
 	public void verifyCode() {
 		try {
-			throw new MathException(ExceptionTypes.DIMENSION_MISMATCH_EXCEPTION);
+			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION);
 		} catch (MathException e) {
-			assertEquals(e.getType(), ExceptionTypes.DIMENSION_MISMATCH_EXCEPTION);
+			assertEquals(e.getType(), ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION);
 		}
 	}
 
 	@Test
 	public void verifyContext() {
 		try {
-			throw new MathException(ExceptionTypes.DIMENSION_MISMATCH_EXCEPTION)
-					.put(ExceptionKeys.EXPECTED, 2).put(ExceptionKeys.WAS, 3);
+			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION)
+					.put(ExceptionKeys.CONSTRAINT, 2).put(ExceptionKeys.VALUE, 1);
 		} catch (MathException e) {
-			assertEquals(e.getContext().get(ExceptionKeys.EXPECTED), 2);
-			assertEquals(e.getContext().get(ExceptionKeys.WAS), 3);
+			assertEquals(e.getContext().get(ExceptionKeys.CONSTRAINT), 2);
+			assertEquals(e.getContext().get(ExceptionKeys.VALUE), 1);
 		}
 	}
 
@@ -50,12 +50,12 @@ public class MathExceptionTest {
 	public void verifyToString() {
 		try {
 			throw new MathException(ExceptionTypes.DIMENSION_MISMATCH_EXCEPTION)
-					.put(ExceptionKeys.EXPECTED, 2).put(ExceptionKeys.WAS, 3);
+					.put(ExceptionKeys.CONSTRAINT, 2).put(ExceptionKeys.VALUE, 1);
 		} catch (MathException e) {
+			assertTrue(e.toString().contains("1"));
 			assertTrue(e.toString().contains("2"));
-			assertTrue(e.toString().contains("3"));
-			assertTrue(e.toString().contains(ExceptionKeys.EXPECTED));
-			assertTrue(e.toString().contains(ExceptionKeys.WAS));
+			assertTrue(e.toString().contains(ExceptionKeys.CONSTRAINT));
+			assertTrue(e.toString().contains(ExceptionKeys.VALUE));
 		}
 	}
 }
