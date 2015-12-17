@@ -43,7 +43,7 @@ public class MathException extends RuntimeException {
 	/**
 	 * Fluid put for adding exception parameters to the context.
 	 * 
-	 * @return the context
+	 * @return this
 	 */
 	public MathException put(String key, Object value) {
 		this.context.put(key, value);
