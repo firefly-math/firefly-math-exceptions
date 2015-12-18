@@ -11,13 +11,13 @@
   *  See the License for the specific language governing permissions and
   *  limitations under the License.
   */
-package com.fireflysemantics.math.exceptions;
+package com.fireflysemantics.math.exception;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.fireflysemantics.math.exceptions.types.interfaces.ExceptionType;
+import com.fireflysemantics.math.exception.interfaces.ExceptionType;
 
 import lombok.Getter;
 

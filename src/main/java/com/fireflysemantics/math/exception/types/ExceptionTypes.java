@@ -12,13 +12,12 @@
   *  limitations under the License.
   */
 
-package com.fireflysemantics.math.exceptions.types;
+package com.fireflysemantics.math.exception.types;
 
-import com.fireflysemantics.math.exceptions.types.interfaces.ExceptionType;
+import com.fireflysemantics.math.exception.interfaces.ExceptionType;
 
 public enum ExceptionTypes implements ExceptionType {
 
-	// CURRENTLY IN IMPLEMENTATIONS
 	NULL_ARGUMENT_EXCEPTION("NULL_ARGUMENT_EXCEPTION"),
 	DIVISION_BY_ZERO_EXCEPTION("DIVISION_BY_ZERO_EXCEPTION"),
 	DIMENSION_MISMATCH_EXCEPTION("DIMENSION_MISMATCH_EXCEPTION"),
@@ -32,6 +31,7 @@ public enum ExceptionTypes implements ExceptionType {
 	NO_DATA_EXCEPTION__AT_LEAST_ONE_ROW("NO_DATA_EXCEPTION__AT_LEAST_ONE_ROW"),
 	NO_DATA_EXCEPTION__AT_LEAST_ONE_COL("NO_DATA_EXCEPTION__AT_LEAST_ONE_COL"),
 	MATH_ARITHMETIC_EXCEPTION("MATH_ARITHMETIC_EXCEPTION"),
+	MATH_ARITHMETIC_EXCEPTION__OVERFLOW_IN_ADDITION("MATH_ARITHMETIC_EXCEPTION__OVERFLOW_IN_ADDITION"),
 	MATH_ILLEGAL_STATE_EXCEPTION("MATH_ILLEGAL_STATE_EXCEPTION"),
 	MATH_ILLEGAL_STATE_EXCEPTION__FIRST_ROWS_NOT_INITIALIZED_YET(
 			"MATH_ILLEGAL_STATE_EXCEPTION__FIRST_ROWS_NOT_INITIALIZED_YET"),

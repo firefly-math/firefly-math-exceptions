@@ -11,7 +11,7 @@
   *  See the License for the specific language governing permissions and
   *  limitations under the License.
   */
-package com.fireflysemantics.math.exceptions.types.interfaces;
+package com.fireflysemantics.math.exception.interfaces;
 
 public interface ExceptionType {
 	String getType();

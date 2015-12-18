@@ -19,9 +19,10 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.fireflysemantics.math.exceptions.factory.ExceptionFactory;
-import com.fireflysemantics.math.exceptions.keys.ExceptionKeys;
-import com.fireflysemantics.math.exceptions.types.ExceptionTypes;
+import com.fireflysemantics.math.exception.MathException;
+import com.fireflysemantics.math.exception.factory.ExceptionFactory;
+import com.fireflysemantics.math.exception.keys.ExceptionKeys;
+import com.fireflysemantics.math.exception.types.ExceptionTypes;
 
 public class MathExceptionTest {
 

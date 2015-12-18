@@ -14,4 +14,4 @@ limitations under the License.
 Exception implementation for all firefly-math modules
 ----------------------------------------------------------------------------- */
 
-package com.fireflysemantics.math.exceptions;
+package com.fireflysemantics.math.exception;
