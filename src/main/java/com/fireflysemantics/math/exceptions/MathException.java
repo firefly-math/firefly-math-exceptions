@@ -17,6 +17,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.fireflysemantics.math.exceptions.types.interfaces.ExceptionType;
+
 import lombok.Getter;
 
 public class MathException extends RuntimeException {
@@ -49,6 +51,15 @@ public class MathException extends RuntimeException {
 	public MathException put(String key, Object value) {
 		this.context.put(key, value);
 		return this;
+	}
+
+	/**
+	 * Retrieve an exception context value
+	 * 
+	 * @return Object instance holding the value
+	 */
+	public Object get(String key) {
+		return this.context.get(key);
 	}
 
 	@Override

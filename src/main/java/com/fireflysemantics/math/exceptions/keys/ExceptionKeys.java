@@ -11,8 +11,27 @@
   *  See the License for the specific language governing permissions and
   *  limitations under the License.
   */
-package com.fireflysemantics.math.exceptions;
+package com.fireflysemantics.math.exceptions.keys;
 
-public interface ExceptionType {
-	String getType();
+/**
+ * Generic exception keys used across all modules.
+ *
+ */
+public class ExceptionKeys {
+
+	/** Constraint key */
+	public static final String CONSTRAINT = "constraint";
+
+	/** Value key */
+	public static final String VALUE = "value";
+
+	/** Lower bracket key */
+	public static final String LOWER_BRACKET = "lowerBracket";
+
+	/** Upper bracket key */
+	public static final String UPPER_BRACKET = "upperBracket";
+
+	/** Private constructor */
+	private ExceptionKeys() {
+	}
 }

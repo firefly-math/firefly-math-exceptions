@@ -19,6 +19,10 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import com.fireflysemantics.math.exceptions.factory.ExceptionFactory;
+import com.fireflysemantics.math.exceptions.keys.ExceptionKeys;
+import com.fireflysemantics.math.exceptions.types.ExceptionTypes;
+
 public class MathExceptionTest {
 
 	@Test(expected = MathException.class)
@@ -49,13 +53,24 @@ public class MathExceptionTest {
 	@Test
 	public void verifyToString() {
 		try {
-			throw new MathException(ExceptionTypes.DIMENSION_MISMATCH_EXCEPTION)
+			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION)
 					.put(ExceptionKeys.CONSTRAINT, 2).put(ExceptionKeys.VALUE, 1);
 		} catch (MathException e) {
+			assertTrue(e.toString().contains(ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION.toString()));
 			assertTrue(e.toString().contains("1"));
 			assertTrue(e.toString().contains("2"));
 			assertTrue(e.toString().contains(ExceptionKeys.CONSTRAINT));
 			assertTrue(e.toString().contains(ExceptionKeys.VALUE));
+		}
+	}
+
+	@Test
+	public void verifyFactory() {
+		try {
+			ExceptionFactory.throwNumberToSmallException(2, 1);
+		} catch (MathException e) {
+			assertTrue(e.getType() == ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION);
+			assertTrue(e.getType() == ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION);
 		}
 	}
 }
