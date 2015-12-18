@@ -70,7 +70,8 @@ public class MathExceptionTest {
 			ExceptionFactory.throwNumberToSmallException(2, 1);
 		} catch (MathException e) {
 			assertTrue(e.getType() == ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION);
-			assertTrue(e.getType() == ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION);
+			assertEquals(e.get(ExceptionKeys.CONSTRAINT), new Integer(1));
+			assertEquals(e.get(ExceptionKeys.VALUE), new Integer(2));
 		}
 	}
 }
