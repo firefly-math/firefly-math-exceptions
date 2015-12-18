@@ -67,11 +67,12 @@ public class MathExceptionTest {
 	@Test
 	public void verifyFactory() {
 		try {
-			ExceptionFactory.throwNumberToSmallException(2, 1);
+			ExceptionFactory.throwNumberToSmallException(1, 2, "foo");
 		} catch (MathException e) {
 			assertTrue(e.getType() == ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION);
-			assertEquals(e.get(ExceptionKeys.CONSTRAINT), new Integer(1));
-			assertEquals(e.get(ExceptionKeys.VALUE), new Integer(2));
+			assertEquals(e.get(ExceptionKeys.CONSTRAINT), new Integer(2));
+			assertEquals(e.get(ExceptionKeys.VALUE), new Integer(1));
+			assertEquals(e.get("foo"), new Integer(1));
 		}
 	}
 }
