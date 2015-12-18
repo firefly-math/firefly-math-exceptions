@@ -12,7 +12,7 @@
   *  limitations under the License.
   */
 
-package com.fireflysemantics.math.exception.types;
+package com.fireflysemantics.math.exception;
 
 import com.fireflysemantics.math.exception.interfaces.ExceptionType;
 

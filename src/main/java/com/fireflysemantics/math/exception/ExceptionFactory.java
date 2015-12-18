@@ -11,11 +11,7 @@
   *  See the License for the specific language governing permissions and
   *  limitations under the License.
   */
-package com.fireflysemantics.math.exception.factory;
-
-import com.fireflysemantics.math.exception.MathException;
-import com.fireflysemantics.math.exception.keys.ExceptionKeys;
-import com.fireflysemantics.math.exception.types.ExceptionTypes;
+package com.fireflysemantics.math.exception;
 
 /** Factory methods for constructing and throwing exceptions */
 public class ExceptionFactory {
