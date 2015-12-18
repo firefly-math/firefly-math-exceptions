@@ -21,6 +21,7 @@ import com.fireflysemantics.math.exceptions.types.interfaces.ExceptionType;
 
 import lombok.Getter;
 
+/** Exception class for all Firefly Math modules */
 public class MathException extends RuntimeException {
 
 	/** @return The exception type */
