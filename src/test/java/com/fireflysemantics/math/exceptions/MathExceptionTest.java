@@ -28,22 +28,22 @@ public class MathExceptionTest {
 
 	@Test(expected = MathException.class)
 	public void verifyThrows() {
-		throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION);
+		throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL);
 	}
 
 	@Test
 	public void verifyCode() {
 		try {
-			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION);
+			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL);
 		} catch (MathException e) {
-			assertEquals(e.getType(), ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION);
+			assertEquals(e.getType(), ExceptionTypes.NUMBER_TOO_SMALL);
 		}
 	}
 
 	@Test
 	public void verifyContext() {
 		try {
-			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION)
+			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL)
 					.put(ExceptionKeys.CONSTRAINT, 2).put(ExceptionKeys.VALUE, 1);
 		} catch (MathException e) {
 			assertEquals(e.getContext().get(ExceptionKeys.CONSTRAINT), 2);
@@ -54,10 +54,10 @@ public class MathExceptionTest {
 	@Test
 	public void verifyToString() {
 		try {
-			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION)
+			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL)
 					.put(ExceptionKeys.CONSTRAINT, 2).put(ExceptionKeys.VALUE, 1);
 		} catch (MathException e) {
-			assertTrue(e.toString().contains(ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION.toString()));
+			assertTrue(e.toString().contains(ExceptionTypes.NUMBER_TOO_SMALL.toString()));
 			assertTrue(e.toString().contains("1"));
 			assertTrue(e.toString().contains("2"));
 			assertTrue(e.toString().contains(ExceptionKeys.CONSTRAINT));
@@ -70,7 +70,7 @@ public class MathExceptionTest {
 		try {
 			ExceptionFactory.throwNumberToSmallException(1, 2, "foo");
 		} catch (MathException e) {
-			assertTrue(e.getType() == ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION);
+			assertTrue(e.getType() == ExceptionTypes.NUMBER_TOO_SMALL);
 			assertEquals(e.get(ExceptionKeys.CONSTRAINT), new Integer(2));
 			assertEquals(e.get(ExceptionKeys.VALUE), new Integer(1));
 			assertEquals(e.get("foo"), new Integer(1));

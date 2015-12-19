@@ -17,7 +17,7 @@ package com.fireflysemantics.math.exception;
 public class ExceptionFactory {
 
 	/**
-	 * Construct and throw a NUMBER_TOO_SMALL_EXCEPTION if {@code value} <
+	 * Construct and throw a NUMBER_TOO_SMALL if {@code value} <
 	 * {@code constraint}
 	 * 
 	 * @param value
@@ -29,14 +29,14 @@ public class ExceptionFactory {
 	 */
 	public static void throwNumberToSmallException(Number value, Number constraint, String key) {
 		if (value.doubleValue() < constraint.doubleValue()) {
-			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL_EXCEPTION)
+			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL)
 					.put(ExceptionKeys.CONSTRAINT, constraint).put(ExceptionKeys.VALUE, value)
 					.put(key, value);
 		}
 	}
 
 	/**
-	 * Construct and throw a NULL_ARGUMENT_EXCEPTION if {@code arg} is null
+	 * Construct and throw a NULL_ARGUMENT if {@code arg} is null
 	 * 
 	 * @param arg
 	 *            The parameter to perform a null check against.
@@ -45,12 +45,12 @@ public class ExceptionFactory {
 	 */
 	public static void throwNullArgumentException(Object arg, String key) {
 		if (arg == null) {
-			throw new MathException(ExceptionTypes.NULL_ARGUMENT_EXCEPTION).put(key, null);
+			throw new MathException(ExceptionTypes.NULL_ARGUMENT).put(key, null);
 		}
 	}
 
 	/**
-	 * Construct and throw a NOT_STRICTLY_POSITIVE_EXCEPTION if {@code value} is
+	 * Construct and throw a NOT_STRICTLY_POSITIVE if {@code value} is
 	 * <= 0.
 	 * 
 	 * @param value
@@ -60,7 +60,7 @@ public class ExceptionFactory {
 	 */
 	public static void throwNotStrictlyPositiveException(Number value, String key) {
 		if (value.doubleValue() <= 0) {
-			throw new MathException(ExceptionTypes.NOT_STRICTLY_POSITIVE_EXCEPTION).put(key, value);
+			throw new MathException(ExceptionTypes.NOT_STRICTLY_POSITIVE).put(key, value);
 		}
 	}
 }
