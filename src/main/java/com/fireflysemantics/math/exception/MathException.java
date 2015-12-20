@@ -39,7 +39,7 @@ public class MathException extends RuntimeException {
 	 *            The exception type
 	 */
 	public MathException(ExceptionType type) {
-		super(type.getType());
+		super(type.toString());
 		this.type = type;
 		this.context = new LinkedHashMap<String, Object>();
 	}

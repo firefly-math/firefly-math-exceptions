@@ -43,8 +43,8 @@ public class MathExceptionTest {
 	@Test
 	public void verifyContext() {
 		try {
-			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL)
-					.put(ExceptionKeys.CONSTRAINT, 2).put(ExceptionKeys.VALUE, 1);
+			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL).put(ExceptionKeys.CONSTRAINT, 2)
+					.put(ExceptionKeys.VALUE, 1);
 		} catch (MathException e) {
 			assertEquals(e.getContext().get(ExceptionKeys.CONSTRAINT), 2);
 			assertEquals(e.getContext().get(ExceptionKeys.VALUE), 1);
@@ -54,8 +54,8 @@ public class MathExceptionTest {
 	@Test
 	public void verifyToString() {
 		try {
-			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL)
-					.put(ExceptionKeys.CONSTRAINT, 2).put(ExceptionKeys.VALUE, 1);
+			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL).put(ExceptionKeys.CONSTRAINT, 2)
+					.put(ExceptionKeys.VALUE, 1);
 		} catch (MathException e) {
 			assertTrue(e.toString().contains(ExceptionTypes.NUMBER_TOO_SMALL.toString()));
 			assertTrue(e.toString().contains("1"));

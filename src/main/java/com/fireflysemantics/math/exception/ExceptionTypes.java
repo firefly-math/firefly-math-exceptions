@@ -81,8 +81,4 @@ public enum ExceptionTypes implements ExceptionType {
 	private ExceptionTypes(String type) {
 		this.type = type;
 	}
-
-	public String getType() {
-		return this.type;
-	}
 }

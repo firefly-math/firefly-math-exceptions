@@ -13,6 +13,6 @@
   */
 package com.fireflysemantics.math.exception.interfaces;
 
+/** Marker interface for instances of the Enum ExceptionTypes */
 public interface ExceptionType {
-	String getType();
 }
