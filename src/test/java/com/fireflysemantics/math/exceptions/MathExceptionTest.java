@@ -14,54 +14,53 @@
 
 package com.fireflysemantics.math.exceptions;
 
+import static com.fireflysemantics.math.exception.ExceptionKeys.CONSTRAINT;
+import static com.fireflysemantics.math.exception.ExceptionKeys.VALUE;
+import static com.fireflysemantics.math.exception.ExceptionTypes.NUMBER_TOO_SMALL;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 import com.fireflysemantics.math.exception.ExceptionFactory;
-import com.fireflysemantics.math.exception.ExceptionKeys;
-import com.fireflysemantics.math.exception.ExceptionTypes;
 import com.fireflysemantics.math.exception.MathException;
 
 public class MathExceptionTest {
 
 	@Test(expected = MathException.class)
 	public void verifyThrows() {
-		throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL);
+		throw new MathException(NUMBER_TOO_SMALL);
 	}
 
 	@Test
 	public void verifyCode() {
 		try {
-			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL);
+			throw new MathException(NUMBER_TOO_SMALL);
 		} catch (MathException e) {
-			assertEquals(e.getType(), ExceptionTypes.NUMBER_TOO_SMALL);
+			assertEquals(e.getType(), NUMBER_TOO_SMALL);
 		}
 	}
 
 	@Test
 	public void verifyContext() {
 		try {
-			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL).put(ExceptionKeys.CONSTRAINT, 2)
-					.put(ExceptionKeys.VALUE, 1);
+			throw new MathException(NUMBER_TOO_SMALL).put(CONSTRAINT, 2).put(VALUE, 1);
 		} catch (MathException e) {
-			assertEquals(e.getContext().get(ExceptionKeys.CONSTRAINT), 2);
-			assertEquals(e.getContext().get(ExceptionKeys.VALUE), 1);
+			assertEquals(e.get(CONSTRAINT), 2);
+			assertEquals(e.get(VALUE), 1);
 		}
 	}
 
 	@Test
 	public void verifyToString() {
 		try {
-			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL).put(ExceptionKeys.CONSTRAINT, 2)
-					.put(ExceptionKeys.VALUE, 1);
+			throw new MathException(NUMBER_TOO_SMALL).put(CONSTRAINT, 2).put(VALUE, 1);
 		} catch (MathException e) {
-			assertTrue(e.toString().contains(ExceptionTypes.NUMBER_TOO_SMALL.toString()));
+			assertTrue(e.toString().contains(NUMBER_TOO_SMALL.toString()));
 			assertTrue(e.toString().contains("1"));
 			assertTrue(e.toString().contains("2"));
-			assertTrue(e.toString().contains(ExceptionKeys.CONSTRAINT));
-			assertTrue(e.toString().contains(ExceptionKeys.VALUE));
+			assertTrue(e.toString().contains(CONSTRAINT));
+			assertTrue(e.toString().contains(VALUE));
 		}
 	}
 
@@ -70,9 +69,9 @@ public class MathExceptionTest {
 		try {
 			ExceptionFactory.throwNumberToSmallException(1, 2, "foo");
 		} catch (MathException e) {
-			assertTrue(e.getType() == ExceptionTypes.NUMBER_TOO_SMALL);
-			assertEquals(e.get(ExceptionKeys.CONSTRAINT), new Integer(2));
-			assertEquals(e.get(ExceptionKeys.VALUE), new Integer(1));
+			assertTrue(e.getType() == NUMBER_TOO_SMALL);
+			assertEquals(e.get(CONSTRAINT), new Integer(2));
+			assertEquals(e.get(VALUE), new Integer(1));
 			assertEquals(e.get("foo"), new Integer(1));
 		}
 	}
