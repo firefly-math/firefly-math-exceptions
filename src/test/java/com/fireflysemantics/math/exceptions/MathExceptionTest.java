@@ -19,6 +19,7 @@ import static com.fireflysemantics.math.exception.ExceptionKeys.VALUE;
 import static com.fireflysemantics.math.exception.ExceptionTypes.NUMBER_TOO_SMALL;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -67,7 +68,8 @@ public class MathExceptionTest {
 	@Test
 	public void verifyFactory() {
 		try {
-			ExceptionFactory.throwNumberToSmallException(1, 2, "foo");
+			ExceptionFactory.checkNumberToSmallException(1, 2, "foo");
+			fail("Should move on to catch");
 		} catch (MathException e) {
 			assertTrue(e.getType() == NUMBER_TOO_SMALL);
 			assertEquals(e.get(CONSTRAINT), new Integer(2));

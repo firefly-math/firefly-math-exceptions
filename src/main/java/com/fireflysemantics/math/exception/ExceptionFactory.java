@@ -13,7 +13,10 @@
   */
 package com.fireflysemantics.math.exception;
 
-/** Factory methods for constructing and throwing exceptions */
+/**
+ * Factory methods for constructing and throwing exceptions if the exceptional
+ * condition is true.
+ */
 public class ExceptionFactory {
 
 	/**
@@ -27,11 +30,10 @@ public class ExceptionFactory {
 	 * @param constraint
 	 *            Constraint that the {@code value} is checked against
 	 */
-	public static void throwNumberToSmallException(Number value, Number constraint, String key) {
+	public static void checkNumberToSmallException(Number value, Number constraint, String key) {
 		if (value.doubleValue() < constraint.doubleValue()) {
-			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL)
-					.put(ExceptionKeys.CONSTRAINT, constraint).put(ExceptionKeys.VALUE, value)
-					.put(key, value);
+			throw new MathException(ExceptionTypes.NUMBER_TOO_SMALL).put(ExceptionKeys.CONSTRAINT, constraint)
+					.put(ExceptionKeys.VALUE, value).put(key, value);
 		}
 	}
 
@@ -43,22 +45,21 @@ public class ExceptionFactory {
 	 * @param key
 	 *            The context key that labels the {@code arg} parameter.
 	 */
-	public static void throwNullArgumentException(Object arg, String key) {
+	public static void checkNullArgumentException(Object arg, String key) {
 		if (arg == null) {
 			throw new MathException(ExceptionTypes.NULL_ARGUMENT).put(key, null);
 		}
 	}
 
 	/**
-	 * Construct and throw a NOT_STRICTLY_POSITIVE if {@code value} is
-	 * <= 0.
+	 * Construct and throw a NOT_STRICTLY_POSITIVE if {@code value} is <= 0.
 	 * 
 	 * @param value
 	 *            The parameter to perform a null check against.
 	 * @param key
 	 *            The context that labels the {@code value} parameter.
 	 */
-	public static void throwNotStrictlyPositiveException(Number value, String key) {
+	public static void checkNotStrictlyPositiveException(Number value, String key) {
 		if (value.doubleValue() <= 0) {
 			throw new MathException(ExceptionTypes.NOT_STRICTLY_POSITIVE).put(key, value);
 		}
