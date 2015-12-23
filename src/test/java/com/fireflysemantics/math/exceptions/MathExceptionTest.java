@@ -50,6 +50,9 @@ public class MathExceptionTest {
 			assertEquals(e.get(CONSTRAINT), 2);
 			assertEquals(e.get(VALUE), 1);
 			assertTrue(e.getKeys().contains(VALUE));
+			assertTrue(e.getKeys().contains(CONSTRAINT));
+			assertEquals(e.getMethodName(), "verifyContext");
+			assertEquals(e.getClassName(), this.getClass().getName());
 		}
 	}
 

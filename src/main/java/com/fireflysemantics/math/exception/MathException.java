@@ -50,6 +50,16 @@ public class MathException extends RuntimeException {
 		return context.keySet();
 	}
 
+	/** @return the method that threw the exception */
+	public String getMethodName() {
+		return this.getStackTrace()[0].getMethodName();
+	}
+
+	/** @return the method that threw the exception */
+	public String getClassName() {
+		return this.getStackTrace()[0].getClassName();
+	}
+
 	/**
 	 * Fluid put for adding exception parameters to the context.
 	 * 
