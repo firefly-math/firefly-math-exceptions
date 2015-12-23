@@ -15,6 +15,7 @@ package com.fireflysemantics.math.exception;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.fireflysemantics.math.exception.interfaces.ExceptionType;
@@ -42,6 +43,11 @@ public class MathException extends RuntimeException {
 		super(type.toString());
 		this.type = type;
 		this.context = new LinkedHashMap<String, Object>();
+	}
+
+	/** @return The context keys */
+	public Set<String> getKeys() {
+		return context.keySet();
 	}
 
 	/**

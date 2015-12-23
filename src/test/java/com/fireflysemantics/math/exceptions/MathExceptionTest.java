@@ -49,6 +49,7 @@ public class MathExceptionTest {
 		} catch (MathException e) {
 			assertEquals(e.get(CONSTRAINT), 2);
 			assertEquals(e.get(VALUE), 1);
+			assertTrue(e.getKeys().contains(VALUE));
 		}
 	}
 
