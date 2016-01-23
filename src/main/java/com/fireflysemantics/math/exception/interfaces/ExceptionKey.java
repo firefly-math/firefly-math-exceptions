@@ -11,19 +11,10 @@
   *  See the License for the specific language governing permissions and
   *  limitations under the License.
   */
-package com.fireflysemantics.math.exception;
-
-import com.fireflysemantics.math.exception.interfaces.ExceptionKey;
+package com.fireflysemantics.math.exception.interfaces;
 
 /**
- * Generic exception keys used across all modules.
- *
+ * Marker interface for instances for Enum instances containing exception keys.
  */
-public enum ExceptionKeys implements ExceptionKey {
-	CONSTRAINT,
-	VALUE,
-	INDEX,
-	EXPECTED,
-	LOWER_BRACKET,
-	UPPER_BRACKET
+public interface ExceptionKey {
 }

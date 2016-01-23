@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.fireflysemantics.math.exception.interfaces.ExceptionKey;
 import com.fireflysemantics.math.exception.interfaces.ExceptionType;
 
 import lombok.Getter;
@@ -31,7 +32,7 @@ public class MathException extends RuntimeException {
 
 	/** @return The context */
 	@Getter
-	private Map<String, Object> context = null;
+	private Map<ExceptionKey, Object> context = null;
 
 	/**
 	 * Constructor
@@ -42,11 +43,11 @@ public class MathException extends RuntimeException {
 	public MathException(ExceptionType type) {
 		super(type.toString());
 		this.type = type;
-		this.context = new LinkedHashMap<String, Object>();
+		this.context = new LinkedHashMap<ExceptionKey, Object>();
 	}
 
 	/** @return The context keys */
-	public Set<String> getKeys() {
+	public Set<ExceptionKey> getKeys() {
 		return context.keySet();
 	}
 
@@ -65,7 +66,7 @@ public class MathException extends RuntimeException {
 	 * 
 	 * @return this
 	 */
-	public MathException put(String key, Object value) {
+	public MathException put(ExceptionKey key, Object value) {
 		this.context.put(key, value);
 		return this;
 	}
@@ -75,7 +76,7 @@ public class MathException extends RuntimeException {
 	 * 
 	 * @return Object instance holding the value
 	 */
-	public Object get(String key) {
+	public Object get(ExceptionKey key) {
 		return this.context.get(key);
 	}
 

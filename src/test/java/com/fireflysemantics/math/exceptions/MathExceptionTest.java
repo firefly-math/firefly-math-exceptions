@@ -64,21 +64,20 @@ public class MathExceptionTest {
 			assertTrue(e.toString().contains(NUMBER_TOO_SMALL.toString()));
 			assertTrue(e.toString().contains("1"));
 			assertTrue(e.toString().contains("2"));
-			assertTrue(e.toString().contains(CONSTRAINT));
-			assertTrue(e.toString().contains(VALUE));
+			assertTrue(e.toString().contains(CONSTRAINT.toString()));
+			assertTrue(e.toString().contains(VALUE.toString()));
 		}
 	}
 
 	@Test
 	public void verifyFactory() {
 		try {
-			ExceptionFactory.checkNumberToSmallException(1, 2, "foo");
+			ExceptionFactory.checkNumberTooSmall(VALUE, 1, 2);
 			fail("Should move on to catch");
 		} catch (MathException e) {
 			assertTrue(e.getType() == NUMBER_TOO_SMALL);
 			assertEquals(e.get(CONSTRAINT), new Integer(2));
 			assertEquals(e.get(VALUE), new Integer(1));
-			assertEquals(e.get("foo"), new Integer(1));
 		}
 	}
 }
