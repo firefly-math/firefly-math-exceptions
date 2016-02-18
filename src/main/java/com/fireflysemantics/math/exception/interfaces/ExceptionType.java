@@ -13,6 +13,9 @@
   */
 package com.fireflysemantics.math.exception.interfaces;
 
-/** Marker interface for instances of the Enum ExceptionTypes */
+/**
+ * Marker interface for enums containing exception codes. For an example see
+ * {@link com.fireflysemantics.math.ExceptionTypes}.
+ */
 public interface ExceptionType {
 }
