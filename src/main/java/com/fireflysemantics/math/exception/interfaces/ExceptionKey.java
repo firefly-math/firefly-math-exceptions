@@ -14,7 +14,7 @@
 package com.fireflysemantics.math.exception.interfaces;
 
 /**
- * Marker interface for instances for Enum instances containing exception keys.
+ * Marker interface for Enum instances containing exception keys.
  */
 public interface ExceptionKey {
 }
