@@ -1,6 +1,11 @@
 # Firefly Math Exceptions
 
-Exception implementation for all firefly-math modules
+Lightweight exception implementation utilized by all firefly-math modules.
+
+## Objectives
+- Be easily adoptable by other Java math modules in the ecosystem
+- Standarize the unique code, trigger and context for throwing the exception
+- Minimize the lines of code required to check for and throw the exception
 
 ## Features
 - One [MathException class](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/main/java/com/fireflysemantics/math/exception/MathException.java) for all modules
@@ -44,6 +49,18 @@ try {
     assertTrue(e.getKeys().contains(VALUE));
     assertTrue(e.getKeys().contains(CONSTRAINT));
     assertEquals(e.getMethodName(), "verifyContext");
-    assertEquals(e.getClassName(), this.getClass().getName());		}
+    assertEquals(e.getClassName(), this.getClass().getName());
+}
 ```
 
+#### Use the Base Module Factory to Throw an Exception
+```
+try {
+    ExceptionFactory.checkNumberTooSmall(VALUE, 1, 2);
+    fail("Should move on to catch");
+} catch (MathException e) {
+    assertTrue(e.getType() == NUMBER_TOO_SMALL);
+    assertEquals(e.get(CONSTRAINT), new Integer(2));
+    assertEquals(e.get(VALUE), new Integer(1));
+}
+```
