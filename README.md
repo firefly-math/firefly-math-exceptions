@@ -4,12 +4,12 @@ Exception implementation for all firefly-math modules
 
 ## Features
 - One [MathException class](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/main/java/com/fireflysemantics/math/exception/MathException.java) for all modules
-- A factory per module for throwing exceptions ensuring that the exception context and code remains consistent throughout all modules
+- A factory per module for throwing exceptions with one factory method per exception code ensuring that the exception context and code remains consistent throughout all modules
 - A set of enumerized codes / types per module indicating the root cause of the thrown exception
-- Provision of an exception context providing key based lookup for parameters that led to the exception being thrown
-- Provision of a fluid API to manage the exception context
-- The ability to directly retrieve the the name of the class that originated the exception
-- The ability to directly retrieve the method name that originated the exception
+- An exception context providing key based lookup for parameters that led to the exception being thrown
+- Fluid API for constructing the exception context
+- Direct retrieval of the name of the class that originated the exception
+- Direct retrieval of the method name that originated the exception
 - Detailed root cause analysis per the exception context
 
 
