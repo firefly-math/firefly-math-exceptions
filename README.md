@@ -4,7 +4,7 @@ Lightweight exception implementation utilized by all firefly-math modules.
 
 ## Objectives
 - Be easily adoptable by other Java math modules in the ecosystem
-- Standarize the unique code, trigger and context for throwing the exception
+- Standarize the unique code, trigger, and context for throwing the exception
 - Minimize the lines of code required to check for and throw the exception
 
 ## Features
