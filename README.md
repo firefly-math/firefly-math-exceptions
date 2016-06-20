@@ -3,7 +3,7 @@
 Exception implementation for all firefly-math modules
 
 ## Features
-- One [exception class](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/main/java/com/fireflysemantics/math/exception/MathException.java) for all modules
+- One [MathException class](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/main/java/com/fireflysemantics/math/exception/MathException.java) for all modules
 - A factory per module for throwing exceptions ensuring that the exception context and code remains consistent throughout all modules
 - A set of enumerized codes / types per module indicating the root cause of the thrown exception
 - Provision of an exception context providing key based lookup for parameters that led to the exception being thrown
@@ -26,25 +26,24 @@ Start with the [test](https://github.com/firefly-math/firefly-math-exceptions/bl
 
 #### Check the exception code
 ```
-		try {
-			throw new MathException(NUMBER_TOO_SMALL);
-		} catch (MathException e) {
-			assertEquals(e.getType(), NUMBER_TOO_SMALL);
+try {
+    throw new MathException(NUMBER_TOO_SMALL);
+} catch (MathException e) {
+    assertEquals(e.getType(), NUMBER_TOO_SMALL);
 }
 ```
 
-### Verify the Exception Context
+#### Analyze the Exception Context
 
 ```
-		try {
-			throw new MathException(NUMBER_TOO_SMALL).put(CONSTRAINT, 2).put(VALUE, 1);
-		} catch (MathException e) {
-			assertEquals(e.get(CONSTRAINT), 2);
-			assertEquals(e.get(VALUE), 1);
-			assertTrue(e.getKeys().contains(VALUE));
-			assertTrue(e.getKeys().contains(CONSTRAINT));
-			assertEquals(e.getMethodName(), "verifyContext");
-			assertEquals(e.getClassName(), this.getClass().getName());
-		}
+try {
+    throw new MathException(NUMBER_TOO_SMALL).put(CONSTRAINT, 2).put(VALUE, 1);
+} catch (MathException e) {
+    assertEquals(e.get(CONSTRAINT), 2);
+    assertEquals(e.get(VALUE), 1);
+    assertTrue(e.getKeys().contains(VALUE));
+    assertTrue(e.getKeys().contains(CONSTRAINT));
+    assertEquals(e.getMethodName(), "verifyContext");
+    assertEquals(e.getClassName(), this.getClass().getName());		}
 ```
 
