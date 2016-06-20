@@ -24,7 +24,7 @@ See [installation](https://github.com/firefly-math/firefly-math#installation)
 
 ## Usage
 
-Start with the [test](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/test/java/com/fireflysemantics/math/exceptions/MathExceptionTest.java).  It provides a runnable set of examples.  In addition here are a set of scenarios explaining how to go about utilizing this module.
+The below snippets are taken from the [MathExceptionTest](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/test/java/com/fireflysemantics/math/exceptions/MathExceptionTest.java).  See the other [firefly-math](https://github.com/firefly-math) for examples of how to extend this modules in the context of other modules. 
 
 #### Create an exception with a given type / code 
 `new MathException(NUMBER_TOO_SMALL)`
