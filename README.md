@@ -27,10 +27,12 @@ See [installation](https://github.com/firefly-math/firefly-math#installation)
 The below snippets are taken from the [MathExceptionTest](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/test/java/com/fireflysemantics/math/exceptions/MathExceptionTest.java).  See the other [firefly-math](https://github.com/firefly-math) modules for examples of how apply this exception module with other math modules. 
 
 #### Create an exception with a given type / code 
-`new MathException(NUMBER_TOO_SMALL)`
+``` java
+new MathException(NUMBER_TOO_SMALL)
+```
 
 #### Check the exception code
-```
+``` java
 try {
     throw new MathException(NUMBER_TOO_SMALL);
 } catch (MathException e) {
@@ -40,7 +42,7 @@ try {
 
 #### Analyze the Exception Context
 
-```
+``` java
 try {
     throw new MathException(NUMBER_TOO_SMALL).put(CONSTRAINT, 2).put(VALUE, 1);
 } catch (MathException e) {
@@ -54,7 +56,7 @@ try {
 ```
 
 #### Use the Base Module Factory to Throw an Exception
-```
+``` java
 try {
     ExceptionFactory.checkNumberTooSmall(VALUE, 1, 2);
     fail("Should move on to catch");
