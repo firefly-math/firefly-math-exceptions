@@ -9,9 +9,9 @@ Lightweight exception implementation utilized by all firefly-math modules.
 
 ## Features
 - One [MathException class](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/main/java/com/fireflysemantics/math/exception/MathException.java) for all modules
-- A factory per module for throwing exceptions with one factory method per exception code ensuring that the exception context and code remains consistent throughout all modules
-- A set of enumerized codes / types per module indicating the root cause of the thrown exception
-- An exception context providing key based lookup for parameters that led to the exception being thrown
+- One [ExceptionFactory](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/main/java/com/fireflysemantics/math/exception/ExceptionFactory.java) per module standardizing the context for exceptions per exception code
+- Set of enumerized codes per module indicating exception root cause
+- Exception bound context providing key based lookup for parameters that led to the exception being thrown
 - Fluid API for constructing the exception context
 - Direct retrieval of the name of the class that originated the exception
 - Direct retrieval of the method name that originated the exception
@@ -24,7 +24,7 @@ See [installation](https://github.com/firefly-math/firefly-math#installation)
 
 ## Usage
 
-The below snippets are taken from the [MathExceptionTest](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/test/java/com/fireflysemantics/math/exceptions/MathExceptionTest.java).  See the other [firefly-math](https://github.com/firefly-math) for examples of how apply or extend this exception module to other math modules. 
+The below snippets are taken from the [MathExceptionTest](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/test/java/com/fireflysemantics/math/exceptions/MathExceptionTest.java).  See the other [firefly-math](https://github.com/firefly-math) modules for examples of how apply this exception module with other math modules. 
 
 #### Create an exception with a given type / code 
 `new MathException(NUMBER_TOO_SMALL)`
