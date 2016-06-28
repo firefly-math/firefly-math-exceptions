@@ -9,7 +9,7 @@ Lightweight exception implementation utilized by all firefly-math modules.
 
 ## Features
 - One [MathException class](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/main/java/com/fireflysemantics/math/exception/MathException.java) for all modules
-- One [ExceptionFactory](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/main/java/com/fireflysemantics/math/exception/ExceptionFactory.java) per module.  Each factory method performs the check for the exception before throwing it, while also standardizing the [key set](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/main/java/com/fireflysemantics/math/exception/ExceptionKeys.java) used to map the values that form the context for the exception.
+- One [ExceptionFactory](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/main/java/com/fireflysemantics/math/exception/ExceptionFactory.java) per module.  Each factory method performs the check for the exception before throwing it, while also standardizing the [key set](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/main/java/com/fireflysemantics/math/exception/ExceptionKeys.java) used to map the values that form the context of the exception.
 - Set of [enumerized exception types](https://github.com/firefly-math/firefly-math-exceptions/blob/master/src/main/java/com/fireflysemantics/math/exception/ExceptionTypes.java) per module indicating exception root cause
 - Exception bound context providing key based lookup for parameters that led to the exception being thrown
 - Fluid API for constructing the exception context
