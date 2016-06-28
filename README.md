@@ -15,6 +15,7 @@ Lightweight exception implementation utilized by all firefly-math modules.
 - Fluid API for constructing the exception context
 - Direct retrieval of the name of the class that originated the exception
 - Direct retrieval of the method name that originated the exception
+- Direct retrieval of exception context parameter values
 - Detailed root cause analysis per the exception context
 
 
