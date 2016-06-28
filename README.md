@@ -31,7 +31,7 @@ The below snippets are taken from the [MathExceptionTest](https://github.com/fir
 new MathException(NUMBER_TOO_SMALL)
 ```
 
-#### Check the exception code
+#### Check the exception type
 ``` java
 try {
     throw new MathException(NUMBER_TOO_SMALL);
